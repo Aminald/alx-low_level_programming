@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 /**
- * main - Entry point
- * Discription:'check for number if it is positive or negative'
+ * main - Determines if a number is positive, negative or zero.
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
