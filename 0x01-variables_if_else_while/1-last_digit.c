@@ -3,32 +3,25 @@
 #include <time.h>
 /**
  * main - Entry point
- *
+ * Discription:'check for number if it is positive or negative'
  * Return: Always 0 (Success)
  */
 int main(void)
 {
 int n;
-int ld;
 srand(time(0));
 n = rand() - RAND_MAX / 2;
-ld = n % 10;
-if (ld < 0)
+if (n > 0)
 {
-ld *= -1;
+printf("%d is positive\n", n);
 }
-printf("Last digit of %d is %d and is ", n, ld);
-if (ld > 5)
+else if (n == 0)
 {
-printf("greater than 5\n");
-}
-else if (ld == 0)
-{
-printf("0\n");
+printf("%d is zero\n", n);
 }
 else
 {
-printf("less than 6 and not 0\n");
+printf("%d is negative\n", n);
 }
 return (0);
 }
