@@ -8,6 +8,7 @@ int _strlen(char *s);
 void swap_int(int *a, int *b);
 void reset_to_98(int *n);
 int _putchar(char c);
+void puts_half(char *str);
 void print_alphabet(void);
 void print_alphabet_x10(void);
 int _islower(int c);
