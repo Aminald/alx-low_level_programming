@@ -21,5 +21,5 @@ else if (found_num)
 break;
 s++;
 }
-return (num * sign);
+return (num *sign);
 }
