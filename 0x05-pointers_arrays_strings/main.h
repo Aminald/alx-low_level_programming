@@ -1,5 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdio.h>
+#include <unistd.h>
 void print_rev(char *s);
 void rev_string(char *s);
 void puts2(char *str);
