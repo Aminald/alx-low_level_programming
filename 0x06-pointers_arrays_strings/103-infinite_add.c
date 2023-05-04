@@ -1,36 +1,57 @@
-#include "main.h"
-
 /**
- * infinite_add - Adds two numbers.
+ * infinite_add - Adds two numbers
+ * @n1: First number
+ * @n2: Second number
+ * @r: Buffer to store the result
+ * @size_r: Size of the buffer
  *
- * @n1: First number as a string.
- * @n2: Second number as a string.
- * @r: Buffer to store result.
- * @size_r: Size of buffer.
- *
- * Return: Pointer to result, or 0 if buffer is too small.
+ * Return: Pointer to the result
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-        int len1, len2, carry, sum, i, j;
+    int len1 = 0, len2 = 0, carry = 0, sum = 0, i = 0, j = 0;
 
-        for (len1 = 0; n1[len1]; len1++)
-                ;
-        for (len2 = 0; n2[len2]; len2++)
-                ;
-        if (len1 + 2 > size_r || len2 + 2 > size_r)
-                return (0);
-        carry = 0;
-        for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--)
-        {
-                sum = carry;
-                if (i >= 0)
-                        sum += n1[i] - '0';
-                if (j >= 0)
-                        sum += n2[j] - '0';
-                r[len1 + 1 + j] = (sum % 10) + '0';
-                carry = sum / 10;
-        }
-        r[len1 + 1 + j] = '\0';
-        return (r + len1 + 1 + j);
+    while (n1[len1] != '\0')
+        len1++;
+    while (n2[len2] != '\0')
+        len2++;
+
+    if (len1 >= size_r || len2 >= size_r)
+        return (0);
+
+    len1--;
+    len2--;
+    size_r--;
+    while (len1 >= 0 || len2 >= 0 || carry)
+    {
+        sum = carry;
+
+        if (len1 >= 0)
+            sum += n1[len1--] - '0';
+
+        if (len2 >= 0)
+            sum += n2[len2--] - '0';
+
+        carry = sum / 10;
+        sum %= 10;
+
+        if (i >= size_r)
+            return (0);
+
+        r[i++] = sum + '0';
+    }
+
+    if (i >= size_r)
+        return (0);
+
+    r[i] = '\0';
+
+    for (j = 0; j < i / 2; j++)
+    {
+        char temp = r[j];
+        r[j] = r[i - j - 1];
+        r[i - j - 1] = temp;
+    }
+
+    return (r);
 }
