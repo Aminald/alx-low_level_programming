@@ -1,38 +1,35 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
-int _putchar(char c);
 
 /**
- * main - generates a random valid password for the program 101-crackme
+ * main - program that generates random valid
+ * passwords for the program 101-crackme
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-    int password[4];
-    int i, sum;
-    srand(time(NULL));
+	int pass[100];
+	int i, sum, n;
 
-    do {
-        sum = 0;
-        for (i = 0; i < 4; i++) {
-            password[i] = rand() % 256;
-            sum += password[i];
-        }
-    } while (sum != 0x10);
+	sum = 0;	
 
-    for (i = 0; i < 4; i++) {
-        _putchar(password[i]);
-    }
-    _putchar('\n');
+	srand(time(NULL));
 
-    return (0);
+	for (i = 0; i < 100; i++)
+	{
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
+		{
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
+		}
+	}
+
+	return (0);
 }
-
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-
