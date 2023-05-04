@@ -13,8 +13,8 @@ for (y = 0; y <= 9; y++)
 z = x * y;
 if (z > 9)
 {
-d = (z - u) / 10;
 u = z % 10;
+d = (z - u) / 10;
 _putchar(44);
 _putchar(32);
 _putchar(d + '0');
