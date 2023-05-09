@@ -12,4 +12,5 @@ void print_chessboard(char (*a)[8]);
 void print_chessboard(char (*a)[8]);
 char *_strstr(char *haystack, char *needle);
 char *_memcpy(char *dest, char *src, unsigned int n);
+void set_string(char **s, char *to);
 #endif
