@@ -13,4 +13,6 @@ int wildcmp(char *s1, char *s2);
 int is_prime_helper(int n, int divisor);
 int str_len(char *s);
 int is_palindrome_recursive(char *s, int start, int end);
+int check_palindrome(char *s, int start, int end);
+int _strlen_recursion(char *s);
 #endif /* MAIN_H */
