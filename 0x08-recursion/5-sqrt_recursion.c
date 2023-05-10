@@ -10,11 +10,11 @@
 int calculate_sqrt(int n, int guess)
 {
 	if (guess * guess == n) /* Base case: square root found */
-		return guess;
+		return (guess);
 	else if (guess * guess > n) /* Base case: square root doesn't exist */
-		return -1;
+		return (-1);
 	else
-		return calculate_sqrt(n, guess + 1); /* Recursive call */
+		return (calculate_sqrt(n, guess + 1)); /* Recursive call */
 }
 
 /**
@@ -26,8 +26,8 @@ int calculate_sqrt(int n, int guess)
 int _sqrt_recursion(int n)
 {
 	if (n < 0) /* If n is negative, return -1 */
-		return -1;
+		return (-1);
 	else
-		return calculate_sqrt(n, 0);
+		return (calculate_sqrt(n, 0));
 }
 
