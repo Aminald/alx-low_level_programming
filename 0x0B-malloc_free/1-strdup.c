@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-_strdup - creates a duplicate of a string in a new memory location
-@str: input string
-Return: pointer to the duplicated string
-*/
+ * _strdup - creates a duplicate of a string in a new memory location
+ * @str: input string
+ * Return: pointer to the duplicated string
+ */
 char *_strdup(char *str)
 {
 char *duplicate;
