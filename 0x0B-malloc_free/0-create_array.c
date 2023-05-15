@@ -6,18 +6,18 @@
  * @size: size of the array
  * @c: character to assign
  *
- * Description: This function creates an array of size 'size' and assigns the character 'c' to each element.
+ * Description: creates an array of size 'size' and assign 'c' to each element.
  *
  * Return: Pointer to the created array, NULL if allocation fails.
  */
 char *create_array(unsigned int size, char c)
 {
-char *array;
-unsigned int i;
-array = malloc(sizeof(char) * size);
-if (size == 0 || array == NULL)
+char *str;
+unsigned int a;
+str = malloc(sizeof(char) * size);
+if (size == 0 || str == NULL)
 return (NULL);
-for (i = 0; i < size; i++)
-array[i] = c;
-return (array);
+for (a = 0; a < size; a++)
+str[a] = c;
+return (str);
 }
