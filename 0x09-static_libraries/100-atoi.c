@@ -1,18 +1,26 @@
 #include "main.h"
 /**
- * find_character - Find the first occurrence of a character in a string
- * @s: The string to search in
- * @c: The character to find
- * Return: If the character is found, a pointer to the first occurrence
- *     in the string. Otherwise, NULL.
+ * _atoi - convert a string into an integer.
+ *
+ * @s: the string to use.
+ *
+ * Return: integer.
  */
-char *_strchr(char *s, char c)
+int _atoi(char *s)
 {
-int i = 0;
-for (; s[i] != '\0'; i++)
+int sign = 1, p = 0;
+unsigned int res = 0;
+while (!(s[p] <= '9' && s[p] >= '0') && s[p] != '\0')
 {
-if (s[i] == c)
-return (&s[i]);
+if (s[p] == '-')
+sign *= -1;
+p++;
 }
-return (NULL);
+while (s[p] <= '9' && (s[p] >= '0' && s[p] != '\0'))
+{
+res = (res * 10) + (s[p] - '0');
+p++;
+}
+res *= sign;
+return (res);
 }
