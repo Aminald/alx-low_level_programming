@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * create_grid - Function to allocate memory for a 2D grid
+ * alloc_grid - Function to allocate memory for a 2D grid
  * @width: Width of the grid
  * @height: Height of the grid
  * Return: Pointer to the allocated 2D array
