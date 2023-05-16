@@ -12,5 +12,5 @@ while (*str != '\0')
 length++;
 str++;
 }
-return length;
+return (length);
 }
