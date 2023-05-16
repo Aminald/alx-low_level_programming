@@ -1,58 +1,66 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 /**
- * count_words - Counts the number of words in a string
- * @str: The string to count words in
- *
- * Return: The number of words in str
+ * count_word - helper function to count the number of words in a given  string
+ * @s: string to evaluate.
+ * Return: number of words in the string.
  */
-int count_words(char *str)
+int count_word(char *s)
 {
-int i, count = 0;
-for (i = 0; str[i] != '\0'; i++)
+int flag, v, m;
+flag = 0;
+m = 0;
+for (v = 0; s[v] != '\0'; v++)
 {
-if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-count++;
+if (s[v] == ' ')
+flag = 0;
+else if (flag == 0)
+{
+flag = 1;
+m++;
 }
-return (count);
+}
+return (m);
 }
 /**
- * strtow - Splits a string into words
+ * **strtow - splits a string into an array of words.
  * @str: The string to split
  *
- * Return: A pointer to an array of words, or NULL if str is NULL or empty
+ * Return: pointer to an array of strings (Success) or NULL (Error)
  */
 char **strtow(char *str)
 {
-char **words;
-int i, j, k, len, word_count;
-if (str == NULL || *str == '\0')
-return (NULL);
-word_count = count_words(str);
-words = malloc((word_count + 1) * sizeof(char *));
-if (words == NULL)
-return (NULL);
-for (i = 0, j = 0; j < word_count; i++)
-{
-if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-{
-len = 0;
-for (k = i; str[k] != '\0' && str[k] != ' '; k++)
+char **matrix, *tmp;
+int y, x = 0, len = 0, words, c = 0, start, end;
+while (*(str + len))
 len++;
-words[j] = malloc((len + 1) * sizeof(char));
-if (words[j] == NULL)
-{
-for (j--; j >= 0; j--)
-free(words[j]);
-free(words);
+words = count_word(str);
+if (words == 0)
 return (NULL);
+matrix = (char **) malloc(sizeof(char *) * (words + 1));
+if (matrix == NULL)
+return (NULL);
+for (y = 0; y <= len; y++)
+{
+if (str[y] == ' ' || str[y] == '\0')
+{
+if (c)
+{
+end = y;
+tmp = (char *) malloc(sizeof(char) * (c + 1));
+if (tmp == NULL)
+return (NULL);
+while (start < end)
+*tmp++ = str[start++];
+*tmp = '\0';
+matrix[x] = tmp - c;
+x++;
+c = 0;
 }
-for (k = 0; k < len; k++)
-words[j][k] = str[i + k];
-words[j][k] = '\0';
-j++;
 }
+else if (c++ == 0)
+start = y;
 }
-words[word_count] = NULL;
-return (words);
+matrix[x] = NULL;
+return (matrix);
 }
