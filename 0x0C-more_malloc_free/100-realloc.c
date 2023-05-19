@@ -14,22 +14,22 @@ void *new_ptr;
 char *src, *dest;
 unsigned int i;
 if (new_size == old_size)
-return ptr;
+return (ptr);
 if (ptr == NULL)
 {
 new_ptr = malloc(new_size);
 if (new_ptr == NULL)
-return NULL;
-return new_ptr;
+return (NULL);
+return (new_ptr);
 }
 if (new_size == 0)
 {
 free(ptr);
-return NULL;
+return (NULL);
 }
 new_ptr = malloc(new_size);
 if (new_ptr == NULL)
-return NULL;
+return (NULL);
 if (new_size < old_size)
 old_size = new_size;
 src = ptr;
@@ -37,5 +37,5 @@ dest = new_ptr;
 for (i = 0; i < old_size; i++)
 dest[i] = src[i];
 free(ptr);
-return new_ptr;
+return (new_ptr);
 }
