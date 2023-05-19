@@ -10,5 +10,6 @@ int _isdigit(int c);
 size_t _strlen(const char *s);
 void _puts(const char *str);
 void mul(const char *num1, const char *num2);
+int _putchar(char c);
 #endif /* MAIN_H */
 
