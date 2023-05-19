@@ -1,1 +1,3 @@
-0x0C. C - More malloc, free
+# 101-mul
+Write a program that multiplies two positive numbers.
+## Usage
