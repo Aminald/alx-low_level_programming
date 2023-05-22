@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define FILE_NAME __FILE__
+#include "2-file_name.h"
 int main(void)
 {
-printf("%s\n", FILE_NAME);
+PRINT_FILE_NAME;
 return (0);
 }
