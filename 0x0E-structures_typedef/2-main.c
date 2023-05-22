@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "dog.h"
 /**
+ * print_dog - Prints the details of a dog
  * main - check the code
  *
  * Return: Always 0.

@@ -14,4 +14,12 @@ char *owner;
 };
 /* Function prototype */
 void init_dog(struct dog *d, char *name, float age, char *owner);
+/**
+ * print_dog - Prints the details of a dog
+ * @d: Pointer to the struct dog
+ *
+ * Description: If an element of d is NULL, print (nil) instead of the element.
+ * If d is NULL, print nothing.
+ */
+void print_dog(struct dog *d);
 #endif /* DOG_H */
