@@ -14,18 +14,18 @@ int bytes, i;
 if (argc != 2)
 {
 printf("Error\n");
-return 1;
+return (1);
 }
 bytes = atoi(argv[1]);
 if (bytes < 0)
 {
 printf("Error\n");
-return 2;
+return (2);
 }
 /* Print the opcodes of the main function */
 unsigned char *main_ptr = (unsigned char *)main;
 for (i = 0; i < bytes; i++)
 printf("%02x ", main_ptr[i]);
 printf("\n");
-return 0;
+return (0);
 }
