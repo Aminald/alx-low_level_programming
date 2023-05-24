@@ -23,8 +23,9 @@ printf("Error\n");
 return 2;
 }
 /* Print the opcodes of the main function */
+unsigned char *main_ptr = (unsigned char *)main;
 for (i = 0; i < bytes; i++)
-printf("%02x ", ((unsigned char *)main)[i]);
+printf("%02x ", main_ptr[i]);
 printf("\n");
 return 0;
 }
