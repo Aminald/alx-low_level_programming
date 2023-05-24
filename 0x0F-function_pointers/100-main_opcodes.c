@@ -11,21 +11,27 @@
 int main(int argc, char *argv[])
 {
 int bytes, i;
+char *arr;
 if (argc != 2)
 {
-printf("Error\n");
-return (1);
+printf("Usage: %s <number_of_bytes>\n", argv[0]);
+exit(1);
 }
 bytes = atoi(argv[1]);
-if (bytes < 0)
+if (bytes <= 0)
 {
-printf("Error\n");
-return (2);
+printf("Error: Invalid number of bytes\n");
+exit(2);
 }
-/* Print the opcodes of the main function */
-unsigned char *main_ptr = (unsigned char *)main;
+arr = (char *)main;
 for (i = 0; i < bytes; i++)
-printf("%02x ", main_ptr[i]);
-printf("\n");
+{
+if (i == bytes - 1)
+{
+printf("%02hhx\n", arr[i]);
+break;
+}
+printf("%02hhx ", arr[i]);
+}
 return (0);
 }
