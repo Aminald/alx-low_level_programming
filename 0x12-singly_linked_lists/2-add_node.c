@@ -24,7 +24,8 @@ if (str_copy == NULL)
 free(new_node);
 return (NULL);
 }
-for (len = 0; str[len]; len++);
+for (len = 0; str[len]; len++)
+;
 new_node->str = str_copy;
 new_node->len = len;
 new_node->next = *head;
